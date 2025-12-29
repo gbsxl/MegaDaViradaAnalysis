@@ -278,154 +278,164 @@
                                 d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
                     </div>
-                    <div class="mb-4 bg-emerald-900/40 p-4 rounded-lg border border-emerald-500/20 shadow-inner">
-                        <p class="text-sm text-emerald-100 leading-relaxed font-medium">
-                            <strong class="text-amber-400 block mb-1">📢 Onde a sorte costuma bater:</strong>
-                            Contra fatos não há argumentos: <strong>10 e 53</strong> são os "reis" da Mega. A
-                            estatística mostra que eles têm uma atração magnética pelos sorteios da Virada. <span
-                                class="text-white font-bold">Dica de especialista:</span> Incluir pelo menos um dos
-                            "tops" no seu jogo aumenta matematicamente sua aderência à tendência histórica.
+                </div>
+                <div class="mb-4 bg-emerald-900/40 p-4 rounded-lg border border-emerald-500/20 shadow-inner">
+                    <p class="text-sm text-emerald-100 leading-relaxed font-medium">
+                        <strong class="text-amber-400 block mb-1">📢 Onde a sorte costuma bater:</strong>
+                        Contra fatos não há argumentos: <strong>10 e 53</strong> são os "reis" da Mega. A
+                        estatística mostra que eles têm uma atração magnética pelos sorteios da Virada. <span
+                            class="text-white font-bold">Dica de especialista:</span> Incluir pelo menos um dos
+                        "tops" no seu jogo aumenta matematicamente sua aderência à tendência histórica.
+                    </p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="topNumbersChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 2 -->
+            <div class="glass-panel p-6 rounded-2xl">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Equilíbrio Par/Ímpar</h3>
+                        <p class="text-sm text-emerald-200/50">Composição ideal de apostas</p>
+                    </div>
+                    <div class="bg-emerald-500/20 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="mb-4 bg-emerald-900/40 p-4 rounded-lg border border-emerald-500/20 shadow-inner">
+                    <p class="text-sm text-emerald-100 leading-relaxed font-medium">
+                        <strong class="text-amber-400 block mb-1">⚖️ O erro dos iniciantes:</strong>
+                        Muitos perdem dinheiro apostando só em pares ou números seguidos. O segredo dos ganhadores é
+                        o <strong>equilíbrio</strong>. A combinação 3 Pares + 3 Ímpares ocorre em mais de 75% dos
+                        sorteios. <span class="text-white font-bold">Não lute contra a estatística:</span> equilibre
+                        seu volante agora!
+                    </p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="oddEvenChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heatmap -->
+        <div class="glass-panel p-6 md:p-8 rounded-2xl mb-16">
+            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                <span>Mapa de Calor 1-60</span>
+                <span class="text-xs font-normal px-2 py-1 rounded bg-white/10 text-emerald-200">Vermelho = Mais
+                    Sorteados</span>
+            </h3>
+            <div id="heatmapGrid" class="heatmap-grid">
+                <!-- Javascript will populate -->
+            </div>
+        </div>
+
+        <!-- Hot Bets Section -->
+        <div class="relative">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-purple-500/20 blur-3xl rounded-3xl -z-10">
+            </div>
+
+            <div class="glass-panel p-8 md:p-12 rounded-3xl border-emerald-500/30">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">🔮 Palpites da Inteligência</h2>
+                    <p class="text-emerald-200/70">Sugestões estratégicas baseadas em 30 anos de dados:</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Palpite 1 -->
+                    <div
+                        class="bg-black/20 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/50 transition duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-2xl">👑</span>
+                            <div class="text-left">
+                                <h4 class="font-bold text-lg text-emerald-100">A Histórica</h4>
+                                <p class="text-xs text-amber-400 font-bold uppercase">Tendência Máxima</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="stat-badge badge-gold">10</span>
+                            <span class="stat-badge badge-gold">53</span>
+                            <span class="stat-badge badge-gold">05</span>
+                            <span class="stat-badge badge-gold">37</span>
+                            <span class="stat-badge badge-gold">33</span>
+                            <span class="stat-badge badge-gold">23</span>
+                        </div>
+                        <p
+                            class="mt-4 text-xs text-center text-emerald-100/60 border-t border-white/10 pt-3 leading-relaxed">
+                            <strong class="text-emerald-400">Por que apostar?</strong><br>
+                            Estas são as 6 dezenas que mais saíram na história. Matematicamente, são os "favoritos"
+                            do
+                            sorteio.
                         </p>
                     </div>
-                    <div class="chart-container">
-                        <canvas id="topNumbersChart"></canvas>
-                    </div>
-                </div>
 
-                <!-- Chart 2 -->
-                <div class="glass-panel p-6 rounded-2xl">
-                    <div class="flex items-center justify-between mb-6">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Equilíbrio Par/Ímpar</h3>
-                            <p class="text-sm text-emerald-200/50">Composição ideal de apostas</p>
+                    <!-- Palpite 2 -->
+                    <div
+                        class="bg-black/20 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/50 transition duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-2xl">⚖️</span>
+                            <div class="text-left">
+                                <h4 class="font-bold text-lg text-emerald-100">Equilíbrio Ideal</h4>
+                                <p class="text-xs text-blue-400 font-bold uppercase">Aposta Racional</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-4 bg-emerald-900/40 p-4 rounded-lg border border-emerald-500/20 shadow-inner">
-                        <p class="text-sm text-emerald-100 leading-relaxed font-medium">
-                            <strong class="text-amber-400 block mb-1">⚖️ O erro dos iniciantes:</strong>
-                            Muitos perdem dinheiro apostando só em pares ou números seguidos. O segredo dos ganhadores é
-                            o <strong>equilíbrio</strong>. A combinação 3 Pares + 3 Ímpares ocorre em mais de 75% dos
-                            sorteios. <span class="text-white font-bold">Não lute contra a estatística:</span> equilibre
-                            seu volante agora!
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="stat-badge badge-neutral">04</span>
+                            <span class="stat-badge badge-neutral">11</span>
+                            <span class="stat-badge badge-neutral">27</span>
+                            <span class="stat-badge badge-neutral">32</span>
+                            <span class="stat-badge badge-neutral">44</span>
+                            <span class="stat-badge badge-neutral">59</span>
+                        </div>
+                        <p
+                            class="mt-4 text-xs text-center text-emerald-100/60 border-t border-white/10 pt-3 leading-relaxed">
+                            <strong class="text-emerald-400">Por que apostar?</strong><br>
+                            Usa a regra de ouro dos ganhadores: 3 pares, 3 ímpares e distribuição perfeita pelo
+                            volante.
                         </p>
                     </div>
-                    <div class="chart-container">
-                        <canvas id="oddEvenChart"></canvas>
+
+                    <!-- Palpite 3 -->
+                    <div
+                        class="bg-black/20 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/50 transition duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-2xl">⚠️</span>
+                            <div class="text-left">
+                                <h4 class="font-bold text-lg text-emerald-100">Zebras (Atrasadas)</h4>
+                                <p class="text-xs text-red-400 font-bold uppercase">Alto Risco/Retorno</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="stat-badge badge-red">42</span>
+                            <span class="stat-badge badge-red">07</span>
+                            <span class="stat-badge badge-red">21</span>
+                            <span class="stat-badge badge-red">50</span>
+                            <span class="stat-badge badge-red">13</span>
+                            <span class="stat-badge badge-red">58</span>
+                        </div>
+                        <p
+                            class="mt-4 text-xs text-center text-emerald-100/60 border-t border-white/10 pt-3 leading-relaxed">
+                            <strong class="text-emerald-400">Por que apostar?</strong><br>
+                            São os números mais "atrasados". Pela Lei dos Grandes Números, a probabilidade deles
+                            saírem
+                            aumenta a cada sorteio.
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Heatmap -->
-            <div class="glass-panel p-6 md:p-8 rounded-2xl mb-16">
-                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                    <span>Mapa de Calor 1-60</span>
-                    <span class="text-xs font-normal px-2 py-1 rounded bg-white/10 text-emerald-200">Vermelho = Mais
-                        Sorteados</span>
-                </h3>
-                <div id="heatmapGrid" class="heatmap-grid">
-                    <!-- Javascript will populate -->
-                </div>
-            </div>
-
-            <!-- Hot Bets Section -->
-            <div class="relative">
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-purple-500/20 blur-3xl rounded-3xl -z-10">
-                </div>
-
-                <div class="glass-panel p-8 md:p-12 rounded-3xl border-emerald-500/30">
-                    <div class="text-center mb-10">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">🔮 Palpites da Inteligência</h2>
-                        <p class="text-emerald-200/70">Sugestões estratégicas baseadas em 30 anos de dados:</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Palpite 1 -->
-                        <div
-                            class="bg-black/20 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/50 transition duration-300">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-2xl">👑</span>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-lg text-emerald-100">A Histórica</h4>
-                                    <p class="text-xs text-amber-400 font-bold uppercase">Tendência Máxima</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 justify-center">
-                                <span class="stat-badge badge-gold">10</span>
-                                <span class="stat-badge badge-gold">53</span>
-                                <span class="stat-badge badge-gold">05</span>
-                                <span class="stat-badge badge-gold">37</span>
-                                <span class="stat-badge badge-gold">33</span>
-                                <span class="stat-badge badge-gold">23</span>
-                            </div>
-                            <p
-                                class="mt-4 text-xs text-center text-emerald-100/60 border-t border-white/10 pt-3 leading-relaxed">
-                                <strong class="text-emerald-400">Por que apostar?</strong><br>
-                                Estas são as 6 dezenas que mais saíram na história. Matematicamente, são os "favoritos"
-                                do
-                                sorteio.
-                            </p>
-                        </div>
-
-                        <!-- Palpite 2 -->
-                        <div
-                            class="bg-black/20 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/50 transition duration-300">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-2xl">⚖️</span>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-lg text-emerald-100">Equilíbrio Ideal</h4>
-                                    <p class="text-xs text-blue-400 font-bold uppercase">Aposta Racional</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 justify-center">
-                                <span class="stat-badge badge-neutral">04</span>
-                                <span class="stat-badge badge-neutral">11</span>
-                                <span class="stat-badge badge-neutral">27</span>
-                                <span class="stat-badge badge-neutral">32</span>
-                                <span class="stat-badge badge-neutral">44</span>
-                                <span class="stat-badge badge-neutral">59</span>
-                            </div>
-                            <p
-                                class="mt-4 text-xs text-center text-emerald-100/60 border-t border-white/10 pt-3 leading-relaxed">
-                                <strong class="text-emerald-400">Por que apostar?</strong><br>
-                                Usa a regra de ouro dos ganhadores: 3 pares, 3 ímpares e distribuição perfeita pelo
-                                volante.
-                            </p>
-                        </div>
-
-                        <!-- Palpite 3 -->
-                        <div
-                            class="bg-black/20 p-6 rounded-2xl border border-white/5 hover:border-emerald-500/50 transition duration-300">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-2xl">⚠️</span>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-lg text-emerald-100">Zebras (Atrasadas)</h4>
-                                    <p class="text-xs text-red-400 font-bold uppercase">Alto Risco/Retorno</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 justify-center">
-                                <span class="stat-badge badge-red">42</span>
-                                <span class="stat-badge badge-red">07</span>
-                                <span class="stat-badge badge-red">21</span>
-                                <span class="stat-badge badge-red">50</span>
-                                <span class="stat-badge badge-red">13</span>
-                                <span class="stat-badge badge-red">58</span>
-                            </div>
-                            <p
-                                class="mt-4 text-xs text-center text-emerald-100/60 border-t border-white/10 pt-3 leading-relaxed">
-                                <strong class="text-emerald-400">Por que apostar?</strong><br>
-                                São os números mais "atrasados". Pela Lei dos Grandes Números, a probabilidade deles
-                                saírem
-                                aumenta a cada sorteio.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="mt-16 text-center text-emerald-200/30 text-sm">
-                <p>&copy; 2025 Mega Analysis. Jogue com responsabilidade. Proibido para menores de 18 anos.</p>
-            </footer>
+        <footer class="mt-16 text-center text-emerald-200/30 text-sm">
+            <p>&copy; 2025 Mega Analysis. Jogue com responsabilidade. Proibido para menores de 18 anos.</p>
+        </footer>
 
     </main>
 
