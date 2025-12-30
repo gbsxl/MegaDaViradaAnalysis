@@ -521,7 +521,92 @@
             </div>
         </div>
 
-        <!-- Share Section -->
+        <!-- Bet Checker Section -->
+        <div class="mt-16 glass-panel p-8 md:p-12 rounded-3xl border border-purple-500/30">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Confira Seus Jogos</h2>
+                <p class="text-emerald-200/70">Cole suas apostas e veja quantos numeros voce acertou!</p>
+            </div>
+
+            <!-- Drawn Numbers Input -->
+            <div class="mb-8 p-6 bg-black/30 rounded-2xl border border-purple-500/20">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm">1</span>
+                    Numeros Sorteados
+                </h3>
+
+                <!-- Mega da Virada Button - Centered -->
+                <div class="text-center mb-6">
+                    <button onclick="fetchMegaDaVirada()" id="fetchViradaBtn"
+                        class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-emerald-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.4)] hover:shadow-[0_0_40px_rgba(245,158,11,0.6)] transform hover:-translate-y-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 viradaSpinner hidden animate-spin"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        <span id="fetchViradaBtnText">Buscar Resultado da Mega da Virada 2025</span>
+                    </button>
+                    <p class="mt-2 text-emerald-200/40 text-xs">Concurso 2955 - 31/12/2025</p>
+                </div>
+
+                <div id="fetchStatus" class="text-sm text-center hidden"></div>
+
+                <!-- Manual input fallback -->
+                <div class="border-t border-purple-500/10 pt-4 mt-4">
+                    <p class="text-emerald-200/40 text-xs mb-2 text-center">Ou digite manualmente (se a busca nao
+                        funcionar):</p>
+                    <input type="text" id="drawnNumbersInput" placeholder="Ex: 10 - 23 - 33 - 37 - 51 - 53"
+                        class="w-full bg-black/50 border border-purple-500/30 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-all text-center">
+                </div>
+
+                <!-- Display drawn numbers -->
+                <div id="drawnNumbersDisplay" class="mt-6 flex flex-wrap justify-center gap-3 hidden">
+                </div>
+            </div>
+
+            <!-- Bets Input -->
+            <div class="mb-8 p-6 bg-black/30 rounded-2xl border border-purple-500/20">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm">2</span>
+                    Suas Apostas
+                </h3>
+                <p class="text-emerald-200/60 text-sm mb-4">Cole suas apostas (uma por linha). Aceita formato: 1 - 2 - 3
+                    - 4 - 5 - 6</p>
+                <textarea id="betsInput" rows="8" placeholder="1 - 2 - 3 - 4 - 5 - 6
+10 - 23 - 33 - 37 - 51 - 53
+5 - 12 - 25 - 38 - 44 - 55"
+                    class="w-full bg-black/50 border border-purple-500/30 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-all font-mono text-sm"></textarea>
+            </div>
+
+            <!-- Check Button -->
+            <div class="text-center mb-8">
+                <button onclick="checkBets()"
+                    class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-[0_0_30px_rgba(147,51,234,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)] transform hover:-translate-y-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Conferir Apostas
+                </button>
+            </div>
+
+            <!-- Results Display -->
+            <div id="betResults" class="hidden">
+                <div class="border-t border-purple-500/20 pt-8">
+                    <h3 class="text-xl font-bold text-white mb-6 text-center">Resultado da Conferencia</h3>
+
+                    <!-- Summary -->
+                    <div id="resultsSummary" class="mb-6 p-4 bg-purple-900/30 rounded-xl text-center">
+                    </div>
+
+                    <!-- Individual Results -->
+                    <div id="individualResults" class="space-y-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="mt-16 text-center">
             <a href="https://wa.me/?text=Achei%20uma%20an%C3%A1lise%20da%20Mega%20da%20Virada%20baseada%20em%20dados%20dos%20%C3%BAltimos%2030%20anos.%0A%0ATem%20estat%C3%ADsticas%2C%20mapas%20de%20calor%20dos%20n%C3%BAmeros%20que%20saem%20mais%20e%20d%C3%A1%20at%C3%A9%20pra%20montar%20seu%20jogo%20direto%20no%20site!%0A%0Ahttps%3A%2F%2Fgbsxl.github.io%2FMegaDaViradaAnalysis%2F"
                 target="_blank" rel="noopener noreferrer"
@@ -788,7 +873,7 @@
             selectedDisplay.innerHTML = '';
 
             if (selectedNumbers.length === 0) {
-                selectedDisplay.innerHTML = '<span class="text-emerald-200/40 text-sm">Selecione 6 números abaixo...</span>';
+                selectedDisplay.innerHTML = '<span class="text-emerald-200/40 text-sm">Selecione 6 numeros abaixo...</span>';
                 copyBtn.disabled = true;
                 return;
             }
@@ -797,19 +882,33 @@
             sorted.forEach(num => {
                 const styles = getNumberStyles(num);
                 const span = document.createElement('span');
-                span.className = 'w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg transition-all';
+                span.className = 'w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg transition-all cursor-pointer hover:scale-90 hover:opacity-70 relative group';
                 span.style.background = styles.bg;
                 span.style.border = styles.border;
                 span.style.boxShadow = styles.shadow;
                 span.textContent = num.toString().padStart(2, '0');
+                span.title = 'Clique para remover';
+                span.onclick = () => {
+                    toggleNumber(num);
+                };
+
+                // Add X indicator on hover
+                const closeIndicator = document.createElement('span');
+                closeIndicator.className = 'absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity';
+                closeIndicator.textContent = '×';
+                span.appendChild(closeIndicator);
+
                 selectedDisplay.appendChild(span);
             });
 
-            // Add count indicator
-            const countSpan = document.createElement('span');
-            countSpan.className = 'ml-4 text-emerald-200/60 text-sm';
-            countSpan.textContent = `(${selectedNumbers.length}/6)`;
-            selectedDisplay.appendChild(countSpan);
+            // Add count indicator and tip
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'flex flex-col items-center ml-4';
+            infoDiv.innerHTML = `
+                <span class="text-emerald-200/60 text-sm">(${selectedNumbers.length}/6)</span>
+                <span class="text-emerald-200/30 text-xs">Clique para remover</span>
+            `;
+            selectedDisplay.appendChild(infoDiv);
 
             copyBtn.disabled = selectedNumbers.length !== 6;
         }
@@ -869,6 +968,323 @@
             btn.title = styles.label ? `${i} - ${styles.label}` : i.toString();
             btn.onclick = () => toggleNumber(i);
             simulatorGrid.appendChild(btn);
+        }
+
+        // =============================================
+        // 6. BET CHECKER FEATURE
+        // =============================================
+
+        // CONFIGURACAO: Numero do concurso (para referencia)
+        const CONCURSO_CONFIG = {
+            numero: 2955,
+            data: '31/12/2025',
+            nome: 'Mega da Virada 2025'
+        };
+
+        // Fetch drawn numbers from Mega-Sena website via CorsProxy.io
+        async function fetchMegaDaVirada() {
+            const viradaBtn = document.getElementById('fetchViradaBtn');
+            const viradaBtnText = document.getElementById('fetchViradaBtnText');
+            const viradaSpinner = document.querySelector('.viradaSpinner');
+            const fetchStatus = document.getElementById('fetchStatus');
+            const drawnInput = document.getElementById('drawnNumbersInput');
+
+            const concurso = CONCURSO_CONFIG.numero;
+
+            // UI feedback - loading state
+            viradaBtn.disabled = true;
+            viradaBtnText.textContent = 'Buscando...';
+            if (viradaSpinner) viradaSpinner.classList.remove('hidden');
+            fetchStatus.classList.remove('hidden');
+            fetchStatus.className = 'text-sm text-center text-yellow-400 mt-4';
+            fetchStatus.innerHTML = '<span class="animate-pulse">Conectando ao site da Mega-Sena...</span>';
+
+            const megaSenaUrl = `https://www.megasena.com/resultados/${concurso}`;
+            const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(megaSenaUrl)}`;
+
+            let success = false;
+            let drawnNumbers = [];
+
+            try {
+                console.log('[DEBUG] Buscando via CorsProxy.io...');
+                fetchStatus.innerHTML = '<span class="animate-pulse">Buscando resultado...</span>';
+
+                const response = await fetch(proxyUrl, {
+                    method: 'GET',
+                    headers: { 'Accept': 'text/html,application/xhtml+xml' }
+                });
+
+                if (response.ok) {
+                    const html = await response.text();
+                    const ballRegex = /<li class="ball">(\d+)<\/li>/g;
+                    let match;
+                    const numbers = [];
+
+                    while ((match = ballRegex.exec(html)) !== null) {
+                        numbers.push(parseInt(match[1], 10));
+                    }
+
+                    console.log('[DEBUG] Numeros encontrados:', numbers);
+
+                    if (numbers.length >= 6) {
+                        drawnNumbers = numbers.slice(0, 6);
+                        success = true;
+                    }
+                }
+            } catch (error) {
+                console.log('[DEBUG] Erro:', error.message);
+            }
+
+            // Update UI based on result
+            viradaBtn.disabled = false;
+            viradaBtnText.textContent = 'Buscar Resultado da Mega da Virada 2025';
+            if (viradaSpinner) viradaSpinner.classList.add('hidden');
+
+            if (success && drawnNumbers.length === 6) {
+                const formattedNumbers = drawnNumbers.map(n => n.toString().padStart(2, '0')).join(' - ');
+                drawnInput.value = formattedNumbers;
+
+                fetchStatus.className = 'text-sm text-center text-green-400 mt-4';
+                fetchStatus.innerHTML = `<strong>Resultado encontrado!</strong><br><span class="font-mono font-bold text-lg">${formattedNumbers}</span>`;
+            } else {
+                fetchStatus.className = 'text-sm text-center text-red-400 mt-4';
+                fetchStatus.innerHTML = `
+                    <p>Resultado ainda nao disponivel ou erro na busca.</p>
+                    <p class="mt-2">
+                        <a href="https://www.megasena.com/resultados/${concurso}" target="_blank" rel="noopener noreferrer" 
+                           class="underline hover:text-red-300">
+                            Ver no site oficial da Mega-Sena
+                        </a>
+                    </p>
+                    <p class="mt-1 text-emerald-200/40 text-xs">Digite os numeros manualmente abaixo.</p>
+                `;
+            }
+        }
+
+
+        function parseNumbers(input) {
+            // Remove extra spaces, parse various formats
+            const cleaned = input.trim()
+                .replace(/\s*-\s*/g, ' ')  // Replace hyphens with spaces
+                .replace(/\s*,\s*/g, ' ')  // Replace commas with spaces
+                .replace(/\s+/g, ' ');      // Collapse multiple spaces
+
+            const numbers = cleaned.split(' ')
+                .map(n => parseInt(n, 10))
+                .filter(n => !isNaN(n) && n >= 1 && n <= 60);
+
+            return [...new Set(numbers)]; // Remove duplicates
+        }
+
+        function checkBets() {
+            const drawnInput = document.getElementById('drawnNumbersInput').value;
+            const betsInput = document.getElementById('betsInput').value;
+            const resultsContainer = document.getElementById('betResults');
+            const summaryContainer = document.getElementById('resultsSummary');
+            const individualContainer = document.getElementById('individualResults');
+            const drawnDisplay = document.getElementById('drawnNumbersDisplay');
+
+            // Parse drawn numbers
+            const drawnNumbers = parseNumbers(drawnInput);
+
+            if (drawnNumbers.length !== 6) {
+                alert('Por favor, digite exatamente 6 numeros sorteados.');
+                return;
+            }
+
+            // Parse bets (one per line)
+            const lines = betsInput.trim().split('\n').filter(line => line.trim());
+
+            if (lines.length === 0) {
+                alert('Por favor, insira pelo menos uma aposta.');
+                return;
+            }
+
+            const bets = lines.map(line => parseNumbers(line)).filter(bet => bet.length >= 6);
+
+            if (bets.length === 0) {
+                alert('Nenhuma aposta valida encontrada. Cada aposta deve ter pelo menos 6 numeros.');
+                return;
+            }
+
+            // Display drawn numbers
+            drawnDisplay.innerHTML = '';
+            drawnDisplay.classList.remove('hidden');
+            drawnNumbers.sort((a, b) => a - b).forEach(num => {
+                const span = document.createElement('span');
+                span.className = 'w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg bg-gradient-to-br from-purple-500 to-purple-700 shadow-lg';
+                span.textContent = num.toString().padStart(2, '0');
+                drawnDisplay.appendChild(span);
+            });
+
+            // Process each bet
+            let stats = { sena: 0, quina: 0, quadra: 0, terno: 0, duque: 0, nada: 0 };
+            let resultsHTML = '';
+
+            bets.forEach((bet, index) => {
+                const matches = bet.filter(n => drawnNumbers.includes(n));
+                const matchCount = matches.length;
+
+                // Update stats
+                if (matchCount === 6) stats.sena++;
+                else if (matchCount === 5) stats.quina++;
+                else if (matchCount === 4) stats.quadra++;
+                else if (matchCount === 3) stats.terno++;
+                else if (matchCount === 2) stats.duque++;
+                else stats.nada++;
+
+                // Get prize tier label and color
+                let tierLabel = '';
+                let tierColor = 'text-gray-400';
+                if (matchCount === 6) { tierLabel = 'SENA!'; tierColor = 'text-yellow-400'; }
+                else if (matchCount === 5) { tierLabel = 'QUINA!'; tierColor = 'text-purple-400'; }
+                else if (matchCount === 4) { tierLabel = 'QUADRA!'; tierColor = 'text-blue-400'; }
+                else if (matchCount === 3) { tierLabel = 'Terno'; tierColor = 'text-emerald-400'; }
+                else if (matchCount === 2) { tierLabel = 'Duque'; tierColor = 'text-gray-400'; }
+
+                // Build bet result HTML
+                const numbersHTML = bet.sort((a, b) => a - b).map(num => {
+                    const isMatch = drawnNumbers.includes(num);
+                    const bgClass = isMatch
+                        ? 'bg-gradient-to-br from-green-500 to-green-700 shadow-[0_0_10px_rgba(34,197,94,0.5)]'
+                        : 'bg-gradient-to-br from-red-600 to-red-800';
+                    return `<span class="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-white text-sm ${bgClass}">${num.toString().padStart(2, '0')}</span>`;
+                }).join('');
+
+                resultsHTML += `
+                    <div class="p-4 bg-black/30 rounded-xl border border-white/10 hover:border-purple-500/30 transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <div class="flex items-center gap-2">
+                                <span class="text-emerald-200/60 text-sm font-mono">Jogo ${index + 1}</span>
+                                <span class="text-white font-bold">${matchCount} acerto${matchCount !== 1 ? 's' : ''}</span>
+                                ${tierLabel ? `<span class="px-2 py-1 rounded-full text-xs font-bold ${tierColor} bg-white/10">${tierLabel}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            ${numbersHTML}
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Build summary
+            const totalBets = bets.length;
+            const winners = stats.sena + stats.quina + stats.quadra;
+
+            summaryContainer.innerHTML = `
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div>
+                        <p class="text-3xl font-bold text-white">${totalBets}</p>
+                        <p class="text-emerald-200/60 text-sm">Apostas</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-yellow-400">${stats.sena}</p>
+                        <p class="text-emerald-200/60 text-sm">Senas</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-purple-400">${stats.quina}</p>
+                        <p class="text-emerald-200/60 text-sm">Quinas</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-blue-400">${stats.quadra}</p>
+                        <p class="text-emerald-200/60 text-sm">Quadras</p>
+                    </div>
+                </div>
+                ${stats.sena > 0 ? '<p class="mt-4 text-yellow-400 font-bold text-lg animate-pulse">PARABENS! VOCE ACERTOU A SENA!</p>' : ''}
+                ${stats.quina > 0 && stats.sena === 0 ? '<p class="mt-4 text-purple-400 font-bold text-lg animate-pulse">PARABENS! VOCE ACERTOU A QUINA!</p>' : ''}
+                ${stats.quadra > 0 && stats.quina === 0 && stats.sena === 0 ? '<p class="mt-4 text-blue-400 font-bold text-lg animate-pulse">PARABENS! VOCE ACERTOU A QUADRA!</p>' : ''}
+            `;
+
+            individualContainer.innerHTML = resultsHTML;
+            resultsContainer.classList.remove('hidden');
+
+            // Scroll to results
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Trigger celebration if won
+            if (winners > 0) {
+                triggerCelebration(stats.sena > 0 ? 'sena' : stats.quina > 0 ? 'quina' : 'quadra');
+            }
+        }
+
+        // Celebration animation (confetti effect)
+        function triggerCelebration(type) {
+            // Create confetti container
+            const container = document.createElement('div');
+            container.id = 'celebration-container';
+            container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden;';
+            document.body.appendChild(container);
+
+            const colors = type === 'sena'
+                ? ['#fbbf24', '#f59e0b', '#facc15', '#fde047', '#fff'] // Gold
+                : type === 'quina'
+                    ? ['#a855f7', '#9333ea', '#c084fc', '#e879f9', '#fff'] // Purple
+                    : ['#3b82f6', '#2563eb', '#60a5fa', '#93c5fd', '#fff']; // Blue
+
+            const particleCount = type === 'sena' ? 200 : type === 'quina' ? 150 : 100;
+
+            // Create confetti particles
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    const size = Math.random() * 10 + 5;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const startX = Math.random() * 100;
+                    const duration = Math.random() * 3 + 2;
+                    const delay = Math.random() * 0.5;
+
+                    particle.style.cssText = `
+                        position:absolute;
+                        left:${startX}%;
+                        top:-20px;
+                        width:${size}px;
+                        height:${size}px;
+                        background:${color};
+                        border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
+                        animation:confetti-fall ${duration}s linear ${delay}s forwards;
+                        transform:rotate(${Math.random() * 360}deg);
+                        box-shadow: 0 0 10px ${color};
+                    `;
+
+                    container.appendChild(particle);
+                }, i * 20);
+            }
+
+            // Add CSS animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes confetti-fall {
+                    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Clean up after animation
+            setTimeout(() => {
+                container.remove();
+                style.remove();
+            }, 6000);
+
+            // Show celebration modal for sena
+            if (type === 'sena') {
+                showWinnerModal();
+            }
+        }
+
+        function showWinnerModal() {
+            const modal = document.createElement('div');
+            modal.innerHTML = `
+                <div class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-pulse" onclick="this.remove()">
+                    <div class="text-center p-12 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-3xl shadow-2xl transform scale-100 animate-bounce">
+                        <div class="text-8xl mb-4">🏆</div>
+                        <h2 class="text-4xl md:text-6xl font-black text-white mb-4">SENA!</h2>
+                        <p class="text-xl text-yellow-100">VOCE GANHOU!</p>
+                        <p class="text-sm text-yellow-200/70 mt-4">Clique para fechar</p>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
         }
     </script>
 </body>
